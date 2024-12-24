@@ -1,0 +1,22 @@
+.title-card-container {
+  font-family: "Josefin Sans";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  &__header {
+    font-size: 3rem;
+    margin: 0 0 2rem 0;
+  }
+
+  &__image {
+    width: 30rem;
+  }
+
+  &__text {
+    font-size: 1.25rem;
+    margin: 0;
+    margin-left: 1rem;
+  }
+}
