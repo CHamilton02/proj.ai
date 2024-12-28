@@ -1,0 +1,59 @@
+.topic-selector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.topic-buttons-container {
+  display: flex;
+  gap: 1.5rem;
+
+  &__topic {
+    font-family: "Josefin Sans";
+    font-size: 1.5rem;
+    background: none;
+    border: solid 1px #021e73;
+    width: 16.875rem;
+    height: 4.05rem;
+    text-align: center;
+    padding: 0;
+  }
+}
+
+.user-topic-submission-container {
+  display: flex;
+  width: fit-content;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  &__input {
+    font-family: "IBM Plex Mono";
+    font-size: 2rem;
+    border: solid 1px #021e73;
+    height: 5.625rem;
+    width: 53.125rem;
+    padding-left: 2rem;
+  }
+  &__button {
+    font-family: "Josefin Sans";
+    font-size: 2rem;
+    color: white;
+    border: none;
+    text-align: center;
+    width: 8rem;
+    background-color: #021e73;
+  }
+}
+
+.submit-button {
+  font-family: "Josefin Sans";
+  font-size: 2rem;
+  color: white;
+  border: none;
+  text-align: center;
+  height: 5rem;
+  width: 30rem;
+  border-radius: 1.5rem;
+  background-color: #021e73;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
