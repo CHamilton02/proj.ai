@@ -3,7 +3,30 @@
     <button class="topic-buttons-container__topic">Web Development</button>
     <button class="topic-buttons-container__topic">Embedded Systems</button>
     <button class="topic-buttons-container__topic">Mobile Phone</button>
-    <button class="topic-buttons-container__topic">Difficulty level</button>
+    <div>
+      <button
+        (click)="toggleDropdownMenu()"
+        class="topic-buttons-container__dropdown"
+      >
+        Difficulty level
+        <img
+          [src]="
+            isDropdownMenuShown
+              ? 'circle arrow up.svg'
+              : 'circle arrow down.svg'
+          "
+          class="dropdown-icon"
+        />
+      </button>
+      <div
+        *ngIf="isDropdownMenuShown"
+        class="topic-buttons-container__dropdown-menu"
+      >
+        <div class="difficulty-option__easy">Easy</div>
+        <div class="difficulty-option__medium">Medium</div>
+        <div class="difficulty-option__hard">Hard</div>
+      </div>
+    </div>
   </div>
 
   <div class="user-topic-submission-container">

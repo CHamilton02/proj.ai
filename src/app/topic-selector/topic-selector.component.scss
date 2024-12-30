@@ -12,12 +12,31 @@
   &__topic {
     font-family: "Josefin Sans";
     font-size: 1.5rem;
+    padding-top: 0.35rem;
     background: none;
     border: solid 1px #021e73;
     width: 16.875rem;
     height: 4.05rem;
     text-align: center;
-    padding: 0;
+  }
+
+  &__dropdown {
+    @extend .topic-buttons-container__topic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__dropdown-menu {
+    background-color: white;
+    border: solid 1px #021e73;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem;
   }
 }
 
@@ -43,6 +62,31 @@
     width: 8rem;
     background-color: #021e73;
   }
+}
+
+.difficulty-option {
+  font-family: "Josefin Sans";
+  font-size: 1.5rem;
+  height: 4.05rem;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.difficulty-option__easy {
+  @extend .difficulty-option;
+  background-color: #78f585;
+}
+
+.difficulty-option__medium {
+  @extend .difficulty-option;
+  background-color: #f29f05;
+}
+
+.difficulty-option__hard {
+  @extend .difficulty-option;
+  background-color: #f95252;
 }
 
 .submit-button {
