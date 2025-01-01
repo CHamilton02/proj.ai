@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #021e73;
+  height: 15rem;
+
+  &__author {
+    color: white;
+    font-family: "Josefin Sans";
+    font-weight: 300;
+    margin: 0;
+  }
+}
