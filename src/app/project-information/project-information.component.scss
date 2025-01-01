@@ -1,0 +1,56 @@
+.project-information-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+
+  img {
+    height: 4.25rem;
+  }
+}
+
+.project-information {
+  width: 50rem;
+
+  &__title {
+    font-family: "Josefin Sans";
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 1rem 0 0 0;
+  }
+
+  &__subtitle {
+    font-family: "Josefin Sans";
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 4rem 0 2rem 0;
+  }
+
+  &__description {
+    font-size: 2rem;
+  }
+
+  &__tip-dark-blue {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    width: 46rem;
+    height: 10rem;
+    padding: 2rem;
+    border: 1px solid #030a8c;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__tip-light-blue {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    width: 46rem;
+    height: 10rem;
+    padding: 2rem;
+    border: 1px solid #459dbf;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+  }
+}
