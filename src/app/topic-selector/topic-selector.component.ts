@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './topic-selector.component.scss',
 })
 export class TopicSelectorComponent {
-  isDropdownMenuShown = true;
+  isDropdownMenuShown = false;
 
   toggleDropdownMenu() {
     this.isDropdownMenuShown = !this.isDropdownMenuShown;
