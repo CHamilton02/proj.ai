@@ -5,37 +5,33 @@
   margin-bottom: 4rem;
 
   img {
-    height: 4.25rem;
+    height: 3.5rem;
   }
 }
 
 .project-information {
-  width: 50rem;
-
   &__title {
     font-family: "Josefin Sans";
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 400;
-    margin: 1rem 0 0 0;
+    margin: 0.8rem 0 0 0;
   }
 
   &__subtitle {
     font-family: "Josefin Sans";
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 400;
     margin: 4rem 0 2rem 0;
   }
 
   &__description {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   &__tip-dark-blue {
     display: flex;
     align-items: center;
-    font-size: 2rem;
-    width: 46rem;
-    height: 10rem;
+    font-size: 1.5rem;
     padding: 2rem;
     border: 1px solid #030a8c;
     border-radius: 1rem;
@@ -45,9 +41,7 @@
   &__tip-light-blue {
     display: flex;
     align-items: center;
-    font-size: 2rem;
-    width: 46rem;
-    height: 10rem;
+    font-size: 1.5rem;
     padding: 2rem;
     border: 1px solid #459dbf;
     border-radius: 1rem;
