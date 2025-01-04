@@ -1,12 +1,17 @@
 <div class="topic-selector-container">
-  <div class="topic-buttons-container">
-    <button class="topic-buttons-container__topic">Web Development</button>
-    <button class="topic-buttons-container__topic">Embedded Systems</button>
-    <button class="topic-buttons-container__topic">Mobile Phone</button>
-    <div>
+  <div class="topic-menu-container">
+    <div class="topic-menu-container__buttons">
+      <button
+        *ngFor="let projectTopic of projectTopics"
+        class="topic-menu-container__topic"
+      >
+        {{ projectTopic }}
+      </button>
+    </div>
+    <div *ngIf="difficultyLevel === ''">
       <button
         (click)="toggleDropdownMenu()"
-        class="topic-buttons-container__dropdown"
+        class="topic-menu-container__dropdown"
       >
         Difficulty level
         <img
@@ -15,27 +20,60 @@
               ? 'circle arrow up.svg'
               : 'circle arrow down.svg'
           "
-          class="dropdown-icon"
+          class="icon"
         />
       </button>
       <div
         *ngIf="isDropdownMenuShown"
-        class="topic-buttons-container__dropdown-menu"
+        class="topic-menu-container__dropdown-menu"
       >
-        <div class="difficulty-option__easy">Easy</div>
-        <div class="difficulty-option__medium">Medium</div>
-        <div class="difficulty-option__hard">Hard</div>
+        <div
+          class="difficulty-option difficulty-easy"
+          (click)="setDifficultyLevel(DifficultyLevel.Easy)"
+        >
+          Easy
+        </div>
+        <div
+          class="difficulty-option difficulty-medium"
+          (click)="setDifficultyLevel(DifficultyLevel.Medium)"
+        >
+          Medium
+        </div>
+        <div
+          class="difficulty-option difficulty-hard"
+          (click)="setDifficultyLevel(DifficultyLevel.Hard)"
+        >
+          Hard
+        </div>
+      </div>
+    </div>
+    <div *ngIf="difficultyLevel !== ''">
+      <div
+        class="chosen-difficulty"
+        [ngClass]="{
+          'difficulty-easy': difficultyLevel === 'Easy',
+          'difficulty-medium': difficultyLevel === 'Medium',
+          'difficulty-hard': difficultyLevel === 'Hard'
+        }"
+      >
+        {{ difficultyLevel }}
       </div>
     </div>
   </div>
 
   <div class="user-topic-submission-container">
     <input
+      id="project-topic-input"
       class="user-topic-submission-container__input"
       type="text"
       placeholder="Type project topic here!"
     />
-    <button class="user-topic-submission-container__button">Enter</button>
+    <button
+      class="user-topic-submission-container__button"
+      (click)="addProjectTopic()"
+    >
+      Enter
+    </button>
   </div>
 
   <button class="submit-button">Submit</button>

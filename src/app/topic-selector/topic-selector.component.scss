@@ -6,9 +6,16 @@
   margin-bottom: 10rem;
 }
 
-.topic-buttons-container {
+.topic-menu-container {
   display: flex;
   gap: 1.5rem;
+
+  &__buttons {
+    display: flex;
+    gap: 1.5rem;
+    width: 53.625rem;
+    flex-wrap: wrap;
+  }
 
   &__topic {
     font-family: "Josefin Sans";
@@ -22,7 +29,7 @@
   }
 
   &__dropdown {
-    @extend .topic-buttons-container__topic;
+    @extend .topic-menu-container__topic;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +58,7 @@
     font-size: 2rem;
     border: solid 1px #021e73;
     height: 5.625rem;
-    width: 53.125rem;
+    width: 61.75rem;
     padding-left: 2rem;
   }
   &__button {
@@ -62,7 +69,12 @@
     text-align: center;
     width: 8rem;
     background-color: #021e73;
+    cursor: pointer;
   }
+}
+
+.chosen-difficulty {
+  @extend .topic-menu-container__dropdown;
 }
 
 .difficulty-option {
@@ -75,19 +87,19 @@
   align-items: center;
 }
 
-.difficulty-option__easy {
-  @extend .difficulty-option;
+.difficulty-easy {
   background-color: #78f585;
+  border: none;
 }
 
-.difficulty-option__medium {
-  @extend .difficulty-option;
+.difficulty-medium {
   background-color: #f29f05;
+  border: none;
 }
 
-.difficulty-option__hard {
-  @extend .difficulty-option;
+.difficulty-hard {
   background-color: #f95252;
+  border: none;
 }
 
 .submit-button {
