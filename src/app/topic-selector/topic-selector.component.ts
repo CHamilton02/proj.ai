@@ -35,7 +35,12 @@ export class TopicSelectorComponent {
       );
   }
 
+  removeProjectTopic(projectTopic: string) {
+    this.projectTopics.delete(projectTopic);
+  }
+
   setDifficultyLevel(difficultyLevel: TopicSelector.DifficultyLevel) {
+    this.isDropdownMenuShown = false;
     this.difficultyLevel = difficultyLevel;
   }
 }

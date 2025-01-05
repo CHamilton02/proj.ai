@@ -4,8 +4,10 @@
       <button
         *ngFor="let projectTopic of projectTopics"
         class="topic-menu-container__topic"
+        (click)="removeProjectTopic(projectTopic)"
       >
-        {{ projectTopic }}
+        <span>{{ projectTopic }}</span>
+        <img src="trashcan.svg" class="icon" />
       </button>
     </div>
     <div *ngIf="difficultyLevel === ''">
@@ -47,18 +49,19 @@
         </div>
       </div>
     </div>
-    <div *ngIf="difficultyLevel !== ''">
-      <div
-        class="chosen-difficulty"
-        [ngClass]="{
-          'difficulty-easy': difficultyLevel === 'Easy',
-          'difficulty-medium': difficultyLevel === 'Medium',
-          'difficulty-hard': difficultyLevel === 'Hard'
-        }"
-      >
-        {{ difficultyLevel }}
-      </div>
-    </div>
+    <button
+      *ngIf="difficultyLevel !== ''"
+      class="chosen-difficulty"
+      [ngClass]="{
+        'difficulty-easy': difficultyLevel === 'Easy',
+        'difficulty-medium': difficultyLevel === 'Medium',
+        'difficulty-hard': difficultyLevel === 'Hard'
+      }"
+      (click)="setDifficultyLevel(DifficultyLevel.Undefined)"
+    >
+      <span>{{ difficultyLevel }}</span>
+      <img src="undo.svg" class="icon" />
+    </button>
   </div>
 
   <div class="user-topic-submission-container">

@@ -26,14 +26,43 @@
     width: 16.875rem;
     height: 4.05rem;
     text-align: center;
+    cursor: pointer;
+
+    & img {
+      display: none;
+    }
+
+    &:hover {
+      background-color: #f95252;
+
+      & span {
+        display: none;
+      }
+
+      & img {
+        display: initial;
+        animation: fade-in 0.5s;
+      }
+    }
   }
 
   &__dropdown {
-    @extend .topic-menu-container__topic;
+    font-family: "Josefin Sans";
+    font-size: 1.5rem;
+    padding-top: 0.35rem;
+    background: none;
+    border: solid 1px #021e73;
+    width: 16.875rem;
+    height: 4.05rem;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    img {
+      display: initial;
+    }
   }
 
   &__dropdown-menu {
@@ -75,6 +104,21 @@
 
 .chosen-difficulty {
   @extend .topic-menu-container__dropdown;
+
+  & img {
+    display: none;
+  }
+
+  &:hover {
+    & img {
+      display: initial;
+      animation: spin 0.5s;
+    }
+
+    & span {
+      display: none;
+    }
+  }
 }
 
 .difficulty-option {
