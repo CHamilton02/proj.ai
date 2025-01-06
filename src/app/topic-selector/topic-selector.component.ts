@@ -9,11 +9,13 @@ import { TopicSelector } from '../topic-selector';
   styleUrl: './topic-selector.component.scss',
 })
 export class TopicSelectorComponent {
-  projectTopics = new Set([
+  defaultProjectTopics = [
     'Web Development',
     'Embedded Systems',
     'Mobile App',
-  ]);
+    'Artificial Intelligence',
+  ];
+  projectTopics: Set<string> = new Set();
   isDropdownMenuShown = false;
   DifficultyLevel = TopicSelector.DifficultyLevel;
   difficultyLevel: TopicSelector.DifficultyLevel =
@@ -23,15 +25,15 @@ export class TopicSelectorComponent {
     this.isDropdownMenuShown = !this.isDropdownMenuShown;
   }
 
-  addProjectTopic() {
-    const topic = (
+  addProjectTopic(
+    projectTopic: string = (
       document.getElementById('project-topic-input') as HTMLInputElement
-    ).value;
-
+    ).value
+  ) {
     (document.getElementById('project-topic-input') as HTMLInputElement).value =
       '';
 
-    if (topic) this.projectTopics.add(topic);
+    if (projectTopic) this.projectTopics.add(projectTopic);
   }
 
   removeProjectTopic(projectTopic: string) {

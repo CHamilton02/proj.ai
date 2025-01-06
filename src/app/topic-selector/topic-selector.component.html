@@ -1,6 +1,17 @@
 <div class="topic-selector-container">
   <div class="topic-menu-container">
-    <div class="topic-menu-container__buttons">
+    <div *ngIf="projectTopics.size === 0" class="topic-menu-container">
+      <button
+        *ngFor="let projectTopic of defaultProjectTopics"
+        class="topic-menu-container__default-topic"
+        (click)="addProjectTopic(projectTopic)"
+      >
+        <span>{{ projectTopic }}</span>
+        <img src="add box.svg" class="icon" />
+      </button>
+    </div>
+
+    <div *ngIf="projectTopics.size !== 0" class="topic-menu-container">
       <button
         *ngFor="let projectTopic of projectTopics"
         class="topic-menu-container__topic"
@@ -10,58 +21,6 @@
         <img src="trashcan.svg" class="icon" />
       </button>
     </div>
-    <div *ngIf="difficultyLevel === ''">
-      <button
-        (click)="toggleDropdownMenu()"
-        class="topic-menu-container__dropdown"
-      >
-        Difficulty level
-        <img
-          [src]="
-            isDropdownMenuShown
-              ? 'circle arrow up.svg'
-              : 'circle arrow down.svg'
-          "
-          class="icon"
-        />
-      </button>
-      <div
-        *ngIf="isDropdownMenuShown"
-        class="topic-menu-container__dropdown-menu"
-      >
-        <div
-          class="difficulty-option difficulty-easy"
-          (click)="setDifficultyLevel(DifficultyLevel.Easy)"
-        >
-          Easy
-        </div>
-        <div
-          class="difficulty-option difficulty-medium"
-          (click)="setDifficultyLevel(DifficultyLevel.Medium)"
-        >
-          Medium
-        </div>
-        <div
-          class="difficulty-option difficulty-hard"
-          (click)="setDifficultyLevel(DifficultyLevel.Hard)"
-        >
-          Hard
-        </div>
-      </div>
-    </div>
-    <button
-      *ngIf="difficultyLevel !== ''"
-      class="chosen-difficulty"
-      [ngClass]="{
-        'difficulty-easy': difficultyLevel === 'Easy',
-        'difficulty-medium': difficultyLevel === 'Medium',
-        'difficulty-hard': difficultyLevel === 'Hard'
-      }"
-      (click)="setDifficultyLevel(DifficultyLevel.Undefined)"
-    >
-      <span>{{ difficultyLevel }}</span>
-      <img src="undo.svg" class="icon" />
-    </button>
   </div>
 
   <div class="user-topic-submission-container">
@@ -78,6 +37,57 @@
       Enter
     </button>
   </div>
+
+  <div *ngIf="difficultyLevel === ''">
+    <button
+      (click)="toggleDropdownMenu()"
+      class="topic-menu-container__dropdown"
+    >
+      Difficulty level
+      <img
+        [src]="
+          isDropdownMenuShown ? 'circle arrow up.svg' : 'circle arrow down.svg'
+        "
+        class="icon"
+      />
+    </button>
+    <div
+      *ngIf="isDropdownMenuShown"
+      class="topic-menu-container__dropdown-menu"
+    >
+      <div
+        class="difficulty-option difficulty-easy"
+        (click)="setDifficultyLevel(DifficultyLevel.Easy)"
+      >
+        Easy
+      </div>
+      <div
+        class="difficulty-option difficulty-medium"
+        (click)="setDifficultyLevel(DifficultyLevel.Medium)"
+      >
+        Medium
+      </div>
+      <div
+        class="difficulty-option difficulty-hard"
+        (click)="setDifficultyLevel(DifficultyLevel.Hard)"
+      >
+        Hard
+      </div>
+    </div>
+  </div>
+  <button
+    *ngIf="difficultyLevel !== ''"
+    class="chosen-difficulty"
+    [ngClass]="{
+      'difficulty-easy': difficultyLevel === 'Easy',
+      'difficulty-medium': difficultyLevel === 'Medium',
+      'difficulty-hard': difficultyLevel === 'Hard'
+    }"
+    (click)="setDifficultyLevel(DifficultyLevel.Undefined)"
+  >
+    <span>{{ difficultyLevel }}</span>
+    <img src="undo.svg" class="icon" />
+  </button>
 
   <button class="submit-button">Submit</button>
 </div>
