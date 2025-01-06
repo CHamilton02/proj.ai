@@ -25,7 +25,9 @@
     border: solid 1px #021e73;
     width: 16.875rem;
     height: 4.05rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 
     & img {
