@@ -28,11 +28,10 @@ export class TopicSelectorComponent {
       document.getElementById('project-topic-input') as HTMLInputElement
     ).value;
 
-    if (topic)
-      this.projectTopics.add(
-        (document.getElementById('project-topic-input') as HTMLInputElement)
-          .value
-      );
+    (document.getElementById('project-topic-input') as HTMLInputElement).value =
+      '';
+
+    if (topic) this.projectTopics.add(topic);
   }
 
   removeProjectTopic(projectTopic: string) {
