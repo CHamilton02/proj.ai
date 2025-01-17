@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TopicSelector } from '../topic-selector';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-topic-selector',
@@ -20,6 +21,7 @@ export class TopicSelectorComponent {
   DifficultyLevel = TopicSelector.DifficultyLevel;
   difficultyLevel: TopicSelector.DifficultyLevel =
     TopicSelector.DifficultyLevel.Undefined;
+  projectService: ProjectService = inject(ProjectService);
 
   toggleDropdownMenu() {
     this.isDropdownMenuShown = !this.isDropdownMenuShown;
@@ -43,5 +45,12 @@ export class TopicSelectorComponent {
   setDifficultyLevel(difficultyLevel: TopicSelector.DifficultyLevel) {
     this.isDropdownMenuShown = false;
     this.difficultyLevel = difficultyLevel;
+  }
+
+  onSubmitToggle() {
+    this.projectService.generateProject(
+      Array.from(this.projectTopics),
+      this.difficultyLevel
+    );
   }
 }

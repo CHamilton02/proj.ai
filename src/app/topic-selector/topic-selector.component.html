@@ -1,14 +1,17 @@
 <div class="topic-selector-container">
   <div class="topic-menu-container">
-    <div *ngIf="projectTopics.size === 0" class="topic-menu-container">
-      <button
-        *ngFor="let projectTopic of defaultProjectTopics"
-        class="topic-menu-container__default-topic"
-        (click)="addProjectTopic(projectTopic)"
-      >
-        <span>{{ projectTopic }}</span>
-        <img src="add box.svg" class="icon" />
-      </button>
+    <div *ngIf="projectTopics.size === 0">
+      <p>Suggested Topics:</p>
+      <div class="topic-menu-container">
+        <button
+          *ngFor="let projectTopic of defaultProjectTopics"
+          class="topic-menu-container__default-topic"
+          (click)="addProjectTopic(projectTopic)"
+        >
+          <span>{{ projectTopic }}</span>
+          <img src="add box.svg" class="icon" />
+        </button>
+      </div>
     </div>
 
     <div *ngIf="projectTopics.size !== 0" class="topic-menu-container">
@@ -29,6 +32,7 @@
       class="user-topic-submission-container__input"
       type="text"
       placeholder="Type project topic here!"
+      (keydown.enter)="addProjectTopic()"
     />
     <button
       class="user-topic-submission-container__button"
@@ -89,5 +93,14 @@
     <img src="undo.svg" class="icon" />
   </button>
 
-  <button class="submit-button">Submit</button>
+  <button
+    *ngIf="!this.projectService.generatingProject"
+    class="submit-button"
+    (click)="onSubmitToggle()"
+  >
+    Submit
+  </button>
+  <button *ngIf="this.projectService.generatingProject" class="submit-button">
+    <div class="loader"></div>
+  </button>
 </div>
