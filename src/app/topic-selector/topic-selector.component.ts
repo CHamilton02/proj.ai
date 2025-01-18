@@ -48,9 +48,11 @@ export class TopicSelectorComponent {
   }
 
   onSubmitToggle() {
-    this.projectService.generateProject(
-      Array.from(this.projectTopics),
-      this.difficultyLevel
-    );
+    if (this.projectTopics && this.difficultyLevel) {
+      this.projectService.generateProject(
+        Array.from(this.projectTopics),
+        this.difficultyLevel
+      );
+    }
   }
 }
