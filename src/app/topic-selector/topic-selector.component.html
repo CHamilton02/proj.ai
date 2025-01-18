@@ -59,24 +59,24 @@
       *ngIf="isDropdownMenuShown"
       class="topic-menu-container__dropdown-menu"
     >
-      <div
+      <button
         class="difficulty-option difficulty-easy"
         (click)="setDifficultyLevel(DifficultyLevel.Easy)"
       >
         Easy
-      </div>
-      <div
+      </button>
+      <button
         class="difficulty-option difficulty-medium"
         (click)="setDifficultyLevel(DifficultyLevel.Medium)"
       >
         Medium
-      </div>
-      <div
+      </button>
+      <button
         class="difficulty-option difficulty-hard"
         (click)="setDifficultyLevel(DifficultyLevel.Hard)"
       >
         Hard
-      </div>
+      </button>
     </div>
   </div>
   <button
