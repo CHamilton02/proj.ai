@@ -1,5 +1,10 @@
 # Proj.ai
 
+## Running Locally
+
+- To run this app locally: `ng serve --open`.
+  - I included the open flag so the app opens automatically for your convenience.
+
 ## Testing
 
 ### e2e
