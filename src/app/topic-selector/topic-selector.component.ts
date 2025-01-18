@@ -42,6 +42,13 @@ export class TopicSelectorComponent {
     this.projectTopics.delete(projectTopic);
   }
 
+  focusOnDifficultyLevelButton(event: Event, difficultyLevelButtonId: string) {
+    event.preventDefault();
+    if (this.isDropdownMenuShown) {
+      document.getElementById(difficultyLevelButtonId)?.focus();
+    }
+  }
+
   setDifficultyLevel(difficultyLevel: TopicSelector.DifficultyLevel) {
     this.isDropdownMenuShown = false;
     this.difficultyLevel = difficultyLevel;

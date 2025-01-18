@@ -44,8 +44,14 @@
 
   <div *ngIf="difficultyLevel === ''">
     <button
-      (click)="toggleDropdownMenu()"
       class="topic-menu-container__dropdown"
+      (click)="toggleDropdownMenu()"
+      (keydown.arrowup)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-hard__button')
+      "
+      (keydown.arrowdown)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-easy__button')
+      "
     >
       Difficulty level
       <img
@@ -60,20 +66,47 @@
       class="topic-menu-container__dropdown-menu"
     >
       <button
+        id="difficulty-option-easy__button"
         class="difficulty-option difficulty-easy"
         (click)="setDifficultyLevel(DifficultyLevel.Easy)"
+        (keydown.arrowup)="
+          focusOnDifficultyLevelButton($event, 'difficulty-option-hard__button')
+        "
+        (keydown.arrowdown)="
+          focusOnDifficultyLevelButton(
+            $event,
+            'difficulty-option-medium__button'
+          )
+        "
       >
         Easy
       </button>
       <button
+        id="difficulty-option-medium__button"
         class="difficulty-option difficulty-medium"
         (click)="setDifficultyLevel(DifficultyLevel.Medium)"
+        (keydown.arrowup)="
+          focusOnDifficultyLevelButton($event, 'difficulty-option-easy__button')
+        "
+        (keydown.arrowdown)="
+          focusOnDifficultyLevelButton($event, 'difficulty-option-hard__button')
+        "
       >
         Medium
       </button>
       <button
+        id="difficulty-option-hard__button"
         class="difficulty-option difficulty-hard"
         (click)="setDifficultyLevel(DifficultyLevel.Hard)"
+        (keydown.arrowup)="
+          focusOnDifficultyLevelButton(
+            $event,
+            'difficulty-option-medium__button'
+          )
+        "
+        (keydown.arrowdown)="
+          focusOnDifficultyLevelButton($event, 'difficulty-option-easy__button')
+        "
       >
         Hard
       </button>
