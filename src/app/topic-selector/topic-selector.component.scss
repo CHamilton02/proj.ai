@@ -31,7 +31,8 @@
       display: none;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: #f95252;
 
       & span {
@@ -48,7 +49,8 @@
   &__default-topic {
     @extend .topic-menu-container__topic;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: #78f585;
     }
   }
