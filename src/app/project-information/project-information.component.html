@@ -14,8 +14,11 @@
     <h3 class="project-information__subtitle">Tips</h3>
 
     <div
-      *ngFor="let tip of this.projectService.generatedProject.tips"
-      class="project-information__tip-dark-blue"
+      *ngFor="let tip of this.projectService.generatedProject.tips; index as i"
+      [ngClass]="{
+        'project-information__tip-dark-blue': i % 2 == 0,
+        'project-information__tip-light-blue': i % 2 == 1
+      }"
     >
       {{ tip }}
     </div>
