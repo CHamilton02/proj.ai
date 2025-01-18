@@ -4,8 +4,7 @@
 
 - [Why Angular?](#why-angular)
 - [Running Locally](#running-locally)
-- [Testing](#testing)
-- [Prerequisites](#prerequisites)
+- [Testing](#testing)]
 
 ## Why Angular?
 
