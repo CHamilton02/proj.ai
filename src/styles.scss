@@ -8,6 +8,15 @@ body {
   padding-bottom: 0.35rem;
 }
 
+.invisible-button {
+  padding: 0rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);

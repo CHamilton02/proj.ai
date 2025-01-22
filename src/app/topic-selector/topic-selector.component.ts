@@ -18,6 +18,7 @@ export class TopicSelectorComponent {
   ];
   projectTopics: Set<string> = new Set();
   isDropdownMenuShown = false;
+  showErrorModal = false;
   DifficultyLevel = TopicSelector.DifficultyLevel;
   difficultyLevel: TopicSelector.DifficultyLevel =
     TopicSelector.DifficultyLevel.Undefined;
@@ -60,6 +61,8 @@ export class TopicSelectorComponent {
         Array.from(this.projectTopics),
         this.difficultyLevel
       );
+    } else {
+      this.showErrorModal = true;
     }
   }
 }

@@ -1,3 +1,19 @@
+<div *ngIf="showErrorModal" class="error-modal-container">
+  <div class="clickable-background" (click)="showErrorModal = false"></div>
+  <div class="error-modal">
+    <div class="error-modal__header">
+      <span>⚠️ Error</span>
+      <button class="invisible-button" (click)="showErrorModal = false">
+        <img src="close.svg" class="error-model__header__close" />
+      </button>
+    </div>
+    <div class="error-modal__body">You didn’t enter a topic and difficulty</div>
+    <div class="error-modal__footer">
+      <button (click)="showErrorModal = false">Okay</button>
+    </div>
+  </div>
+</div>
+
 <div class="topic-selector-container">
   <div class="topic-menu-container">
     <div *ngIf="projectTopics.size === 0">
