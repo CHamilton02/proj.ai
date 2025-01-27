@@ -13,3 +13,12 @@
     margin: 0;
   }
 }
+
+@media only screen and (max-width: 57.8rem) {
+  .footer {
+    height: 7.5rem;
+    &__author {
+      font-size: 1.2rem;
+    }
+  }
+}

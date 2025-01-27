@@ -15,31 +15,32 @@
 </div>
 
 <div class="topic-selector-container">
-  <div class="topic-menu-container">
-    <div *ngIf="projectTopics.size === 0">
-      <p>Suggested Topics:</p>
-      <div class="topic-menu-container">
-        <button
-          *ngFor="let projectTopic of defaultProjectTopics"
-          class="topic-menu-container__default-topic"
-          (click)="addProjectTopic(projectTopic)"
-        >
-          <span>{{ projectTopic }}</span>
-          <img src="add box.svg" class="icon" />
-        </button>
-      </div>
-    </div>
-
-    <div *ngIf="projectTopics.size !== 0" class="topic-menu-container">
+  <div
+    *ngIf="projectTopics.size === 0"
+    class="topic-selector-container__suggested"
+  >
+    <p>Suggested Topics:</p>
+    <div class="topic-menu-container--suggested">
       <button
-        *ngFor="let projectTopic of projectTopics"
-        class="topic-menu-container__topic"
-        (click)="removeProjectTopic(projectTopic)"
+        *ngFor="let projectTopic of defaultProjectTopics"
+        class="topic-menu-container__default-topic"
+        (click)="addProjectTopic(projectTopic)"
       >
         <span>{{ projectTopic }}</span>
-        <img src="trashcan.svg" class="icon" />
+        <img src="add box.svg" class="icon" />
       </button>
     </div>
+  </div>
+
+  <div *ngIf="projectTopics.size !== 0" class="topic-menu-container">
+    <button
+      *ngFor="let projectTopic of projectTopics"
+      class="topic-menu-container__topic"
+      (click)="removeProjectTopic(projectTopic)"
+    >
+      <span>{{ projectTopic }}</span>
+      <img src="trashcan.svg" class="icon" />
+    </button>
   </div>
 
   <div class="user-topic-submission-container">
@@ -54,11 +55,15 @@
       class="user-topic-submission-container__button"
       (click)="addProjectTopic()"
     >
-      Enter
+      <span>Enter</span>
+      <img src="check.svg" class="icon" />
     </button>
   </div>
 
-  <div *ngIf="difficultyLevel === ''">
+  <div
+    *ngIf="difficultyLevel === ''"
+    class="topic-selector-container__dropdown"
+  >
     <button
       class="topic-menu-container__dropdown"
       (click)="toggleDropdownMenu()"

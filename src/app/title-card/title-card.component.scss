@@ -6,17 +6,49 @@
   gap: 1rem;
 
   &__header {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin: 0 0 2rem 0;
   }
 
   &__image {
-    width: 35rem;
+    width: 30rem;
   }
 
   &__text {
     font-size: 1.25rem;
     margin: 0;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 80.625rem) {
+  .title-card-container {
+    margin-top: 2rem;
+    flex-direction: column;
+
+    &__header {
+      text-align: center;
+    }
+
+    &__text {
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 57.8rem) {
+  .title-card-container {
+    margin-top: 10rem;
+    &__header {
+      font-size: 2rem;
+    }
+
+    &__image {
+      width: 20rem;
+    }
+
+    &__text {
+      font-size: 1rem;
+    }
   }
 }

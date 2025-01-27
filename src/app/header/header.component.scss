@@ -3,10 +3,27 @@
   left: 0;
   right: 0;
   height: 6.25rem;
+  background-color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
+
   &__image {
     height: 5rem;
+  }
+}
+
+@media only screen and (max-width: 57.8rem) {
+  .header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+
+    &__image {
+      height: 3rem;
+    }
   }
 }
