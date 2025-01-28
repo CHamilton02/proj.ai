@@ -35,7 +35,10 @@
     </button>
   </div>
 
-  <app-project-topic-input class="project-topic-input" />
+  <app-project-topic-input-bar
+    class="project-topic-input-bar"
+    (inputProjectTopic)="addProjectTopic($event)"
+  />
 
   <div
     *ngIf="difficultyLevel === ''"

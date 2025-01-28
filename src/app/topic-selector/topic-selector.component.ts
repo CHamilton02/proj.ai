@@ -3,11 +3,11 @@ import { Component, inject } from '@angular/core';
 import { TopicSelector } from '../topic-selector';
 import { ProjectService } from '../project.service';
 import { ModalComponent } from '../modal/modal.component';
-import { ProjectTopicInputComponent } from '../project-topic-input/project-topic-input.component';
+import { ProjectTopicInputBarComponent } from '../project-topic-input-bar/project-topic-input-bar.component';
 
 @Component({
   selector: 'app-topic-selector',
-  imports: [CommonModule, ModalComponent, ProjectTopicInputComponent],
+  imports: [CommonModule, ModalComponent, ProjectTopicInputBarComponent],
   templateUrl: './topic-selector.component.html',
   styleUrl: './topic-selector.component.scss',
 })
@@ -30,15 +30,8 @@ export class TopicSelectorComponent {
     this.isDropdownMenuShown = !this.isDropdownMenuShown;
   }
 
-  addProjectTopic(
-    projectTopic: string = (
-      document.getElementById('project-topic-input') as HTMLInputElement
-    ).value
-  ) {
-    (document.getElementById('project-topic-input') as HTMLInputElement).value =
-      '';
-
-    if (projectTopic) this.projectTopics.add(projectTopic);
+  addProjectTopic(projectTopic: string) {
+    this.projectTopics.add(projectTopic);
   }
 
   removeProjectTopic(projectTopic: string) {
