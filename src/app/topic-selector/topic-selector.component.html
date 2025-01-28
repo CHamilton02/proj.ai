@@ -1,18 +1,10 @@
-<div *ngIf="showErrorModal" class="error-modal-container">
-  <div class="clickable-background" (click)="showErrorModal = false"></div>
-  <div class="error-modal">
-    <div class="error-modal__header">
-      <span>⚠️ Error</span>
-      <button class="invisible-button" (click)="showErrorModal = false">
-        <img src="close.svg" class="error-model__header__close" />
-      </button>
-    </div>
-    <div class="error-modal__body">You didn’t enter a topic and difficulty</div>
-    <div class="error-modal__footer">
-      <button (click)="showErrorModal = false">Okay</button>
-    </div>
-  </div>
-</div>
+<app-modal
+  *ngIf="showErrorModal"
+  [header]="'⚠️ Error'"
+  [body]="'You didn’t enter a topic and difficulty'"
+  [buttonText]="'Okay'"
+  (modalClosed)="showErrorModal = false"
+/>
 
 <div class="topic-selector-container">
   <div
@@ -43,22 +35,7 @@
     </button>
   </div>
 
-  <div class="user-topic-submission-container">
-    <input
-      id="project-topic-input"
-      class="user-topic-submission-container__input"
-      type="text"
-      placeholder="Type project topic here!"
-      (keydown.enter)="addProjectTopic()"
-    />
-    <button
-      class="user-topic-submission-container__button"
-      (click)="addProjectTopic()"
-    >
-      <span>Enter</span>
-      <img src="check.svg" class="icon" />
-    </button>
-  </div>
+  <app-project-topic-input class="project-topic-input" />
 
   <div
     *ngIf="difficultyLevel === ''"

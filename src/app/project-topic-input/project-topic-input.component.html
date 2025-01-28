@@ -1,0 +1,13 @@
+<div class="project-topic-input">
+  <input
+    id="topic-input"
+    class="project-topic-input__input"
+    type="text"
+    placeholder="Type project topic here!"
+    (keydown.enter)="addProjectTopic()"
+  />
+  <button class="project-topic-input__button" (click)="addProjectTopic()">
+    <span>Enter</span>
+    <img src="check.svg" class="icon" />
+  </button>
+</div>

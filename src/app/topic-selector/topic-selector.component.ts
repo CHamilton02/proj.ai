@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { TopicSelector } from '../topic-selector';
 import { ProjectService } from '../project.service';
+import { ModalComponent } from '../modal/modal.component';
+import { ProjectTopicInputComponent } from '../project-topic-input/project-topic-input.component';
 
 @Component({
   selector: 'app-topic-selector',
-  imports: [CommonModule],
+  imports: [CommonModule, ModalComponent, ProjectTopicInputComponent],
   templateUrl: './topic-selector.component.html',
   styleUrl: './topic-selector.component.scss',
 })
