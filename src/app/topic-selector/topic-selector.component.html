@@ -8,36 +8,34 @@
 
 <div class="topic-selector-container">
   <div
-    *ngIf="projectTopics.size === 0"
+    *ngIf="projectService.projectTopics.size === 0"
     class="topic-selector-container__suggested"
   >
     <p>Suggested Topics:</p>
     <div class="topic-menu-container--suggested">
-      <button
-        *ngFor="let projectTopic of defaultProjectTopics"
-        class="topic-menu-container__default-topic"
-        (click)="addProjectTopic(projectTopic)"
-      >
-        <span>{{ projectTopic }}</span>
-        <img src="add box.svg" class="icon" />
-      </button>
+      <app-project-topic-button
+        *ngFor="let projectTopic of projectService.defaultProjectTopics"
+        [projectTopic]="projectTopic"
+        [suggestedTopic]="true"
+        style="width: calc(94% / 4)"
+      />
     </div>
   </div>
 
-  <div *ngIf="projectTopics.size !== 0" class="topic-menu-container">
-    <button
-      *ngFor="let projectTopic of projectTopics"
-      class="topic-menu-container__topic"
-      (click)="removeProjectTopic(projectTopic)"
-    >
-      <span>{{ projectTopic }}</span>
-      <img src="trashcan.svg" class="icon" />
-    </button>
+  <div
+    *ngIf="projectService.projectTopics.size !== 0"
+    class="topic-menu-container"
+  >
+    <app-project-topic-button
+      *ngFor="let projectTopic of projectService.projectTopics"
+      [projectTopic]="projectTopic"
+      style="width: calc(94% / 4)"
+    />
   </div>
 
   <app-project-topic-input-bar
     class="project-topic-input-bar"
-    (inputProjectTopic)="addProjectTopic($event)"
+    (inputProjectTopic)="projectService.addProjectTopic($event)"
   />
 
   <div

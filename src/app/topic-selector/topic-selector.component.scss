@@ -28,47 +28,6 @@
     width: 100%;
   }
 
-  &__topic {
-    font-family: "Josefin Sans";
-    font-size: 1.1rem;
-    width: calc(94% / 4);
-    height: 4rem;
-    background: none;
-    border: solid 1px #021e73;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin-bottom: 1rem;
-
-    & img {
-      display: none;
-    }
-
-    &:hover,
-    &:focus {
-      background-color: #f95252;
-
-      & span {
-        display: none;
-      }
-
-      & img {
-        display: initial;
-        animation: fade-in 0.5s;
-      }
-    }
-  }
-
-  &__default-topic {
-    @extend .topic-menu-container__topic;
-
-    &:hover,
-    &:focus {
-      background-color: #78f585;
-    }
-  }
-
   &__dropdown {
     font-family: "Josefin Sans";
     font-size: 1.2rem;

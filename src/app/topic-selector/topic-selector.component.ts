@@ -4,21 +4,20 @@ import { TopicSelector } from '../topic-selector';
 import { ProjectService } from '../project.service';
 import { ModalComponent } from '../modal/modal.component';
 import { ProjectTopicInputBarComponent } from '../project-topic-input-bar/project-topic-input-bar.component';
+import { ProjectTopicButtonComponent } from '../project-topic-button/project-topic-button.component';
 
 @Component({
   selector: 'app-topic-selector',
-  imports: [CommonModule, ModalComponent, ProjectTopicInputBarComponent],
+  imports: [
+    CommonModule,
+    ModalComponent,
+    ProjectTopicInputBarComponent,
+    ProjectTopicButtonComponent,
+  ],
   templateUrl: './topic-selector.component.html',
   styleUrl: './topic-selector.component.scss',
 })
 export class TopicSelectorComponent {
-  defaultProjectTopics = [
-    'Web Development',
-    'Embedded Systems',
-    'Mobile App',
-    'Artificial Intelligence',
-  ];
-  projectTopics: Set<string> = new Set();
   isDropdownMenuShown = false;
   showErrorModal = false;
   DifficultyLevel = TopicSelector.DifficultyLevel;
@@ -28,14 +27,6 @@ export class TopicSelectorComponent {
 
   toggleDropdownMenu() {
     this.isDropdownMenuShown = !this.isDropdownMenuShown;
-  }
-
-  addProjectTopic(projectTopic: string) {
-    this.projectTopics.add(projectTopic);
-  }
-
-  removeProjectTopic(projectTopic: string) {
-    this.projectTopics.delete(projectTopic);
   }
 
   focusOnDifficultyLevelButton(event: Event, difficultyLevelButtonId: string) {
@@ -51,11 +42,8 @@ export class TopicSelectorComponent {
   }
 
   onSubmitToggle() {
-    if (this.projectTopics && this.difficultyLevel) {
-      this.projectService.generateProject(
-        Array.from(this.projectTopics),
-        this.difficultyLevel
-      );
+    if (this.difficultyLevel) {
+      this.projectService.generateProject(this.difficultyLevel);
     } else {
       this.showErrorModal = true;
     }

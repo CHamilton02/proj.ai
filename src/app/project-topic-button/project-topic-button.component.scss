@@ -1,0 +1,32 @@
+.project-topic-button {
+  width: 100%;
+
+  @extend .project-topic-button;
+
+  & img {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: #f95252;
+
+    & span {
+      display: none;
+    }
+
+    & img {
+      display: initial;
+      animation: fade-in 0.5s;
+    }
+  }
+}
+
+.project-topic-button--suggested {
+  @extend .project-topic-button;
+
+  &:hover,
+  &:focus {
+    background-color: #78f585;
+  }
+}
