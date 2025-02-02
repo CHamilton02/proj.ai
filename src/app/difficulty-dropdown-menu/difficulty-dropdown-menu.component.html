@@ -1,0 +1,81 @@
+<div
+  *ngIf="projectService.difficultyLevel === ''"
+  class="difficulty-dropdown-menu"
+>
+  <button
+    class="difficulty-dropdown-menu__button"
+    (click)="toggleDropdownMenu()"
+    (keydown.arrowup)="
+      focusOnDifficultyLevelButton($event, 'difficulty-option-hard__button')
+    "
+    (keydown.arrowdown)="
+      focusOnDifficultyLevelButton($event, 'difficulty-option-easy__button')
+    "
+  >
+    Difficulty level
+    <img
+      [src]="
+        isDropdownMenuShown ? 'circle arrow up.svg' : 'circle arrow down.svg'
+      "
+      class="dropdown-icon"
+    />
+  </button>
+  <div
+    *ngIf="isDropdownMenuShown"
+    class="difficulty-dropdown-menu__dropdown-menu"
+  >
+    <button
+      id="difficulty-option-easy__button"
+      class="difficulty-option difficulty-easy"
+      (click)="setDifficultyLevel(DifficultyLevel.Easy)"
+      (keydown.arrowup)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-hard__button')
+      "
+      (keydown.arrowdown)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-medium__button')
+      "
+    >
+      Easy
+    </button>
+    <button
+      id="difficulty-option-medium__button"
+      class="difficulty-option difficulty-medium"
+      (click)="setDifficultyLevel(DifficultyLevel.Medium)"
+      (keydown.arrowup)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-easy__button')
+      "
+      (keydown.arrowdown)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-hard__button')
+      "
+    >
+      Medium
+    </button>
+    <button
+      id="difficulty-option-hard__button"
+      class="difficulty-option difficulty-hard"
+      (click)="setDifficultyLevel(DifficultyLevel.Hard)"
+      (keydown.arrowup)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-medium__button')
+      "
+      (keydown.arrowdown)="
+        focusOnDifficultyLevelButton($event, 'difficulty-option-easy__button')
+      "
+    >
+      Hard
+    </button>
+  </div>
+</div>
+<button
+  *ngIf="projectService.difficultyLevel !== DifficultyLevel.Undefined"
+  class="chosen-difficulty"
+  [ngClass]="{
+    'difficulty-easy': projectService.difficultyLevel === DifficultyLevel.Easy,
+    'difficulty-medium':
+      projectService.difficultyLevel === DifficultyLevel.Medium,
+    'difficulty-hard': projectService.difficultyLevel === DifficultyLevel.Hard
+  }"
+  (click)="setDifficultyLevel(DifficultyLevel.Undefined)"
+>
+  <span>{{ projectService.difficultyLevel }}</span>
+  <img src="undo.svg" class="icon" />
+</button>

@@ -4,7 +4,6 @@ import { TitleCardComponent } from './title-card/title-card.component';
 import { TopicSelectorComponent } from './topic-selector/topic-selector.component';
 import { ProjectInformationComponent } from './project-information/project-information.component';
 import { FooterComponent } from './footer/footer.component';
-import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-root',

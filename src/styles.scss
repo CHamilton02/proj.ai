@@ -6,22 +6,11 @@ body {
 
 button {
   color: black;
-}
-
-.topic-selector-button {
-  font-family: "Josefin Sans";
-  font-size: 1.1rem;
-  height: 4rem;
-  background: none;
-  border: solid 0.063rem #021e73;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  cursor: pointer;
 }
 
 .icon {
   width: 2rem;
-  padding-bottom: 0.35rem;
 }
 
 .invisible-button {
@@ -30,7 +19,6 @@ button {
   border: none;
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 
 @keyframes spin {

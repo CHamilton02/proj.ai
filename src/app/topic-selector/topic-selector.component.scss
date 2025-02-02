@@ -8,14 +8,6 @@
   &__suggested {
     width: 100%;
   }
-
-  &__dropdown {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
 }
 
 .topic-menu-container {
@@ -23,42 +15,6 @@
   flex-wrap: wrap;
   width: 100%;
   gap: 2%;
-
-  & div {
-    width: 100%;
-  }
-
-  &__dropdown {
-    font-family: "Josefin Sans";
-    font-size: 1.2rem;
-    padding-top: 0.35rem;
-    background: none;
-    border: solid 1px #021e73;
-    width: 15rem;
-    height: 4rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    img {
-      display: initial;
-    }
-  }
-
-  &__dropdown-menu {
-    position: absolute;
-    top: 4rem;
-    background-color: white;
-    border: solid 1px #021e73;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 14.875rem;
-    padding: 1rem 0 1rem 0;
-  }
 }
 
 .topic-menu-container--suggested {
@@ -67,54 +23,12 @@
   justify-content: space-between;
 }
 
+.project-topic {
+  width: calc(94% / 4);
+}
+
 .project-topic-input-bar {
   width: 100%;
-}
-
-.chosen-difficulty {
-  @extend .topic-menu-container__dropdown;
-
-  & img {
-    display: none;
-  }
-
-  &:hover {
-    & img {
-      display: initial;
-      animation: spin 0.5s;
-    }
-
-    & span {
-      display: none;
-    }
-  }
-}
-
-.difficulty-option {
-  font-family: "Josefin Sans";
-  font-size: 1.2rem;
-  height: 4.05rem;
-  width: 12rem;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.difficulty-easy {
-  background-color: #78f585;
-  border: none;
-}
-
-.difficulty-medium {
-  background-color: #f29f05;
-  border: none;
-}
-
-.difficulty-hard {
-  background-color: #f95252;
-  border: none;
 }
 
 .submit-button {
@@ -131,7 +45,6 @@
   background-color: #021e73;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition: background-color 0.2s;
-  cursor: pointer;
   min-width: 10rem;
 
   &:hover {
@@ -160,33 +73,8 @@
 }
 
 @media only screen and (max-width: 57.8rem) {
-  .topic-menu-container {
-    &__topic {
-      font-size: 1rem;
-      width: 45%;
-    }
-  }
-
-  .user-topic-submission-container {
-    &__input {
-      padding-left: 1rem;
-      border-radius: 0;
-      width: 80%;
-    }
-
-    &__button {
-      width: 20%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      & img {
-        display: initial;
-      }
-
-      & span {
-        display: none;
-      }
-    }
+  .project-topic {
+    font-size: 1rem;
+    width: 45%;
   }
 }

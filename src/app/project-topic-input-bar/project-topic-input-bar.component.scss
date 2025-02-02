@@ -17,7 +17,6 @@
     text-align: center;
     width: 20%;
     background-color: #021e73;
-    cursor: pointer;
     transition: background-color 0.2s;
 
     & img {
@@ -26,6 +25,31 @@
 
     &:hover {
       background-color: #042a9c;
+    }
+  }
+}
+
+@media only screen and (max-width: 57.8rem) {
+  .project-topic-input-bar {
+    &__input {
+      padding-left: 1rem;
+      border-radius: 0;
+      width: 80%;
+    }
+
+    &__button {
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & img {
+        display: initial;
+      }
+
+      & span {
+        display: none;
+      }
     }
   }
 }

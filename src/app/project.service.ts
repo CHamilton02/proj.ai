@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from './project';
+import { TopicSelector } from './topic-selector';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { Project } from './project';
 export class ProjectService {
   url = 'http://localhost:8080';
   generatedProject: Project | undefined;
-  generatingProject: boolean = false;
+  isProjectGenerating: boolean = false;
   defaultProjectTopics = [
     'Web Development',
     'Embedded Systems',
@@ -16,6 +17,8 @@ export class ProjectService {
     'Artificial Intelligence',
   ];
   projectTopics: Set<string> = new Set();
+  difficultyLevel: TopicSelector.DifficultyLevel =
+    TopicSelector.DifficultyLevel.Undefined;
 
   constructor(private http: HttpClient) {}
 
@@ -27,16 +30,16 @@ export class ProjectService {
     this.projectTopics.delete(projectTopic);
   }
 
-  async generateProject(difficulty: string) {
-    this.generatingProject = true;
+  async generateProject() {
+    this.isProjectGenerating = true;
     await this.http
       .post(`${this.url}/project/generate`, {
         topics: this.projectTopics,
-        difficulty,
+        difficulty: this.difficultyLevel,
       })
       .subscribe((body) => {
         this.generatedProject = body as Project;
-        this.generatingProject = false;
+        this.isProjectGenerating = false;
       });
   }
 }

@@ -1,0 +1,89 @@
+@use "../../styles.scss";
+
+.difficulty-dropdown-menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &__button {
+    font-family: "Josefin Sans";
+    font-size: 1.2rem;
+    padding-top: 0.35rem;
+    background: none;
+    border: solid 1px #021e73;
+    width: 15rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      display: initial;
+    }
+  }
+
+  &__dropdown-menu {
+    position: absolute;
+    top: 4rem;
+    background-color: white;
+    border: solid 1px #021e73;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 14.875rem;
+    padding: 1rem 0 1rem 0;
+  }
+}
+
+.chosen-difficulty {
+  @extend .difficulty-dropdown-menu__button;
+
+  & img {
+    display: none;
+  }
+
+  &:hover {
+    & img {
+      display: initial;
+      animation: spin 0.5s;
+    }
+
+    & span {
+      display: none;
+    }
+  }
+}
+
+.difficulty-option {
+  font-family: "Josefin Sans";
+  font-size: 1.2rem;
+  height: 4.05rem;
+  width: 12rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.difficulty-easy {
+  background-color: #78f585;
+  border: none;
+}
+
+.difficulty-medium {
+  background-color: #f29f05;
+  border: none;
+}
+
+.difficulty-hard {
+  background-color: #f95252;
+  border: none;
+}
+
+.dropdown-icon {
+  @extend .icon;
+}
