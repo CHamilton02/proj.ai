@@ -3,7 +3,11 @@
     id="project-topic-input"
     class="project-topic-input-bar__input"
     type="text"
-    placeholder="Type project topic here!"
+    [placeholder]="
+      projectService.projectTopics.size
+        ? 'Add another topic!'
+        : 'Type project topic here!'
+    "
     (keydown.enter)="addProjectTopic()"
   />
   <button class="project-topic-input-bar__button" (click)="addProjectTopic()">

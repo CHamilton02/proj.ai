@@ -1,4 +1,5 @@
-import { Component, output } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-project-topic-input-bar',
@@ -8,6 +9,7 @@ import { Component, output } from '@angular/core';
 })
 export class ProjectTopicInputBarComponent {
   inputProjectTopic = output<string>();
+  projectService: ProjectService = inject(ProjectService);
 
   addProjectTopic() {
     const projectTopic: string = (
