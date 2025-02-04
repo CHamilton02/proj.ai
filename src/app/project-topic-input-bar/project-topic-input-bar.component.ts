@@ -14,6 +14,9 @@ export class ProjectTopicInputBarComponent {
       document.getElementById('project-topic-input') as HTMLInputElement
     ).value;
 
+    (document.getElementById('project-topic-input') as HTMLInputElement).value =
+      '';
+
     if (projectTopic) this.inputProjectTopic.emit(projectTopic);
   }
 }
