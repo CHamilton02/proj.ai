@@ -32,14 +32,17 @@ export class ProjectService {
 
   async generateProject() {
     this.isProjectGenerating = true;
+
     await this.http
       .post(`${this.url}/project/generate`, {
-        topics: this.projectTopics,
+        topics: [...this.projectTopics],
         difficulty: this.difficultyLevel,
       })
       .subscribe((body) => {
         this.generatedProject = body as Project;
         this.isProjectGenerating = false;
       });
+
+    console.log(this.generatedProject);
   }
 }
