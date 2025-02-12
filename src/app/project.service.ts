@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Project } from './project';
 import { TopicSelector } from './topic-selector';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProjectService {
-  url = 'http://localhost:8080';
+  url = environment.backendUrl;
   generatedProject: Project | undefined;
   isProjectGenerating: boolean = false;
   defaultProjectTopics = [
