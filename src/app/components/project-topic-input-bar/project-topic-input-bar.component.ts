@@ -1,5 +1,5 @@
 import { Component, inject, output } from '@angular/core';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-project-topic-input-bar',

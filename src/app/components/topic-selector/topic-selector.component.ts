@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../../services/project.service';
 import { ModalComponent } from '../modal/modal.component';
 import { ProjectTopicInputBarComponent } from '../project-topic-input-bar/project-topic-input-bar.component';
 import { ProjectTopicButtonComponent } from '../project-topic-button/project-topic-button.component';

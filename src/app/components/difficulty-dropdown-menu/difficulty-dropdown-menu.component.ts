@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { TopicSelector } from '../topic-selector';
+import { TopicSelector } from '../../models/topic-selector';
 import { CommonModule } from '@angular/common';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-difficulty-dropdown-menu',

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { ProjectService } from '../project.service';
-import { Project } from '../project';
+import { ProjectService } from '../../services/project.service';
+import { Project } from '../../models/project';
 import { CommonModule } from '@angular/common';
 
 @Component({

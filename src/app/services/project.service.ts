@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Project } from './project';
-import { TopicSelector } from './topic-selector';
-import { environment } from '../environments/environment';
+import { Project } from '../models/project';
+import { TopicSelector } from '../models/topic-selector';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +43,5 @@ export class ProjectService {
         this.generatedProject = body as Project;
         this.isProjectGenerating = false;
       });
-
-    console.log(this.generatedProject);
   }
 }

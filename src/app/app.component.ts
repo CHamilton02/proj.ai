@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { TitleCardComponent } from './title-card/title-card.component';
-import { TopicSelectorComponent } from './topic-selector/topic-selector.component';
-import { ProjectInformationComponent } from './project-information/project-information.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { TitleCardComponent } from './components/title-card/title-card.component';
+import { TopicSelectorComponent } from './components/topic-selector/topic-selector.component';
+import { ProjectInformationComponent } from './components/project-information/project-information.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
