@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Project } from '../models/project';
 import { TopicSelector } from '../models/topic-selector';
 import { environment } from '../../environments/environment';
+import { AnalyticsService } from './analytics.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,10 @@ export class ProjectService {
   difficultyLevel: TopicSelector.DifficultyLevel =
     TopicSelector.DifficultyLevel.Undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private analyticsService: AnalyticsService
+  ) {}
 
   addProjectTopic(projectTopic: string) {
     this.projectTopics.add(projectTopic);
@@ -42,6 +46,12 @@ export class ProjectService {
       .subscribe((body) => {
         this.generatedProject = body as Project;
         this.isProjectGenerating = false;
+        this.analyticsService.trackGenerateProject(
+          this.projectTopics,
+          this.difficultyLevel,
+          this.generatedProject?.title,
+          this.generatedProject?.description
+        );
       });
   }
 }
