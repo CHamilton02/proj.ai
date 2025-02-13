@@ -10,7 +10,7 @@ export class AnalyticsService {
     projectTitle: string,
     projectDescription: string
   ) {
-    gtag('event', 'generate project', {
+    gtag('event', 'generate_project', {
       topics: Array.from(topics).join(','),
       difficulty: difficulty,
       project_title: projectTitle,
