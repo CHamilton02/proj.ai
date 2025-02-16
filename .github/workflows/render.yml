@@ -1,0 +1,14 @@
+name: Deployment
+on:
+  workflow_run:
+    workflows: ["Playwright Tests"]
+    types:
+      - completed
+jobs:
+  test:
+    timeout-minutes: 60
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: curl {{ production.RENDER_DEPLOY_HOOK }}
