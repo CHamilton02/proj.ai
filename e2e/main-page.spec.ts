@@ -14,3 +14,13 @@ test('adds selected default topic', async ({ page }) => {
     firstDefaultTopic
   );
 });
+
+test('adds user inputted topic', async ({ page }) => {
+  await page.goto('/');
+
+  await page.locator('#project-topic-input').fill('Angular');
+  await page.locator('#project-topic-input-button').click();
+  const selectedTopicsElements = page.locator('.project-topic-button');
+  expect(selectedTopicsElements).toHaveCount(1);
+  expect(await selectedTopicsElements.first().innerText()).toBe('Angular');
+});

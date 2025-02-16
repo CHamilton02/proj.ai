@@ -10,7 +10,11 @@
     "
     (keydown.enter)="addProjectTopic()"
   />
-  <button class="project-topic-input-bar__button" (click)="addProjectTopic()">
+  <button
+    id="project-topic-input-button"
+    class="project-topic-input-bar__button"
+    (click)="addProjectTopic()"
+  >
     <span>Enter</span>
     <img src="check.svg" class="icon" />
   </button>
