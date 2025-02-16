@@ -5,10 +5,10 @@ on:
     types:
       - completed
 jobs:
-  test:
+  deploy:
     timeout-minutes: 60
     environment: production
     runs-on: ubuntu-latest
     steps:
       - name: deploy
-        run: curl {{ production.RENDER_DEPLOY_HOOK }}
+        run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
