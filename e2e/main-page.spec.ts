@@ -18,9 +18,18 @@ test('adds selected default topic', async ({ page }) => {
 test('adds user inputted topic', async ({ page }) => {
   await page.goto('/');
 
-  await page.locator('#project-topic-input').fill('Angular');
-  await page.locator('#project-topic-input-button').click();
-  const selectedTopicsElements = page.locator('.project-topic-button');
-  expect(selectedTopicsElements).toHaveCount(1);
-  expect(await selectedTopicsElements.first().innerText()).toBe('Angular');
+  const projectTopics = ['Angular', 'Express', 'Full-stack', 'AI'];
+
+  for (let i = 0; i < projectTopics.length; i++) {
+    await page.locator('#project-topic-input').fill(projectTopics[i]);
+    await page.locator('#project-topic-input-button').click();
+  }
+
+  const projectTopicButtons = page.locator('.project-topic-button');
+
+  await expect(projectTopicButtons).toHaveCount(projectTopics.length);
+
+  projectTopics.forEach(async (projectTopic, index) => {
+    await expect(projectTopicButtons.nth(index)).toContainText(projectTopic);
+  });
 });
