@@ -36,6 +36,9 @@ export class ProjectService {
   }
 
   async generateProject() {
+    if (this.isProjectGenerating) {
+      return;
+    }
     this.isProjectGenerating = true;
 
     await this.http

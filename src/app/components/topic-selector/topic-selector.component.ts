@@ -23,7 +23,10 @@ export class TopicSelectorComponent {
   projectService: ProjectService = inject(ProjectService);
 
   onSubmitToggle() {
-    if (this.projectService.difficultyLevel) {
+    if (
+      this.projectService.difficultyLevel &&
+      this.projectService.projectTopics.size
+    ) {
       this.projectService.generateProject();
     } else {
       this.showErrorModal = true;
