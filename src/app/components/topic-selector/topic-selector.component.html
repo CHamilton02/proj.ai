@@ -41,7 +41,9 @@
   <app-difficulty-dropdown-menu />
 
   <button class="submit-button" (click)="onSubmitToggle()">
-    <span *ngIf="!this.projectService.isProjectGenerating">Submit</span>
+    <span *ngIf="!this.projectService.isProjectGenerating">{{
+      this.projectService.generatedProject ? "Resubmit" : "Submit"
+    }}</span>
     <div *ngIf="this.projectService.isProjectGenerating" class="loader"></div>
   </button>
 </div>
