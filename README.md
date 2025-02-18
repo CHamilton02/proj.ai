@@ -18,7 +18,7 @@
 
 - Install dependencies: `npm install`.
 - Start the app in development mode: `npm run start:dev`.
-  - **Note**: THe backend must also be running locally for the app to function.
+  - **Note**: The backend must also be running locally for the app to function.
 - To run the frontend with the production backend: `npm run start:prod`.
 
 ## Testing
