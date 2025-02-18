@@ -16,9 +16,10 @@
 
 ## Running Locally
 
-- Be sure to first install dependencies: `npm install`.
-- To run this app locally: `ng serve --open`.
-  - I included the open flag so the app opens automatically for your convenience.
+- Install dependencies: `npm install`.
+- Start the app in development mode: `npm run start:dev`.
+  - **Note**: THe backend must also be running locally for the app to function.
+- To run the frontend with the production backend: `npm run start:prod`.
 
 ## Testing
 
