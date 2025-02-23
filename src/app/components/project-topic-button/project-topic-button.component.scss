@@ -19,6 +19,7 @@
   &:hover,
   &:focus {
     background-color: #f95252;
+    outline: none;
 
     & span {
       display: none;

@@ -1,15 +1,16 @@
 <button
   *ngIf="suggestedTopic()"
-  class="topic-selector-button project-topic-button--suggested"
-  (click)="projectService.addProjectTopic(projectTopic())"
+  id="project-topic-button-{{ projectTopic() }}"
+  class="project-topic-button--suggested"
+  (click)="this.toggleProjectButton()"
 >
   <span>{{ projectTopic() }}</span>
   <img src="add box.svg" class="icon" />
 </button>
 
 <button
-  class="topic-selector-button project-topic-button"
-  (click)="projectService.removeProjectTopic(projectTopic())"
+  class="project-topic-button"
+  (click)="this.toggleProjectButton()"
   *ngIf="!suggestedTopic()"
 >
   <span>{{ projectTopic() }}</span>

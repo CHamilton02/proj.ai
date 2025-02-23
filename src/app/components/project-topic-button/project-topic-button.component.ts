@@ -12,4 +12,23 @@ export class ProjectTopicButtonComponent {
   projectTopic = input.required<string>();
   suggestedTopic = input<boolean>();
   projectService: ProjectService = inject(ProjectService);
+  confirmUserTap = false;
+
+  toggleProjectButton() {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(
+        navigator.userAgent
+      ) &&
+      !this.confirmUserTap
+    ) {
+      this.confirmUserTap = true;
+      document
+        .getElementById(`project-topic-button-${this.projectTopic()}`)
+        ?.focus();
+    } else if (this.suggestedTopic()) {
+      this.projectService.addProjectTopic(this.projectTopic());
+    } else {
+      this.projectService.removeProjectTopic(this.projectTopic());
+    }
+  }
 }
