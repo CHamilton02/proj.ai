@@ -10,6 +10,7 @@ import { AnalyticsService } from './analytics.service';
 })
 export class ProjectService {
   url = environment.backendUrl;
+  focusedProject: string | undefined;
   generatedProject: Project | undefined;
   isProjectGenerating: boolean = false;
   defaultProjectTopics = [
