@@ -4,11 +4,11 @@
   height: 4rem;
   background: none;
   border: solid 0.063rem #021e73;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   margin-bottom: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   @extend .project-topic-button;
 
